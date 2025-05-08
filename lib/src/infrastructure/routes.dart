@@ -1,10 +1,10 @@
 import 'package:go_router/go_router.dart';
-import 'package:alga_transit_front/application/ui/impound/impound_ui.dart';
-import 'package:alga_transit_front/application/ui/seizure/seizure_ui.dart';
-import 'package:alga_transit_front/application/ui/vehicle/vehicle_ui.dart';
-import 'package:alga_transit_front/application/ui/base/menu_ui.dart';
-import 'package:alga_transit_front/application/ui/owner/owner_ui.dart';
-import 'package:alga_transit_front/application/ui/base/home_ui.dart';
+import 'package:alga_transit_front/src/application/ui/impound/impound_ui.dart';
+import 'package:alga_transit_front/src/application/ui/seizure/seizure_ui.dart';
+import 'package:alga_transit_front/src/application/ui/vehicle/vehicle_ui.dart';
+import 'package:alga_transit_front/src/application/ui/base/menu_ui.dart';
+import 'package:alga_transit_front/src/application/ui/owner/owner_ui.dart';
+import 'package:alga_transit_front/src/application/ui/base/home_ui.dart';
 
 final GoRouter _router = GoRouter(initialLocation: '/', routes : _routes);
 

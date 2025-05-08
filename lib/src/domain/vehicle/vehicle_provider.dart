@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:alga_transit_front/domain/vehicle/vehicle.dart';
-import 'package:alga_transit_front/domain/vehicle/vehicle_service.dart';
+import 'package:alga_transit_front/src/domain/vehicle/vehicle.dart';
+import 'package:alga_transit_front/src/domain/vehicle/vehicle_service.dart';
 
 class VehicleProvider with ChangeNotifier{
   final VehicleService _service = VehicleService();

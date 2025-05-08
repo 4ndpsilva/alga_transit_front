@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:alga_transit_front/domain/vehicle/vehicle.dart';
+import 'package:alga_transit_front/src/domain/vehicle/vehicle.dart';
 
 class VehicleService{
   final String baseURL = 'http://localhost:8080/api/v1';

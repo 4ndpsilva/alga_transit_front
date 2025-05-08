@@ -12,8 +12,19 @@ class MenuUI extends StatelessWidget{
       appBar: AppBar(title: Text('')),
       drawer: Drawer(
         child: ListView(
+          padding: EdgeInsets.zero,
           children: [
-            DrawerHeader(child: Text('')),
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blueAccent),
+              child: Center(
+                child: Text('ALGA TRANSIT',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24
+                  )
+                )
+              )
+            ),
             ListTile(
               leading: Icon(Icons.home),
               title: Text('Home'), 
@@ -38,6 +49,12 @@ class MenuUI extends StatelessWidget{
               leading: Icon(Icons.block),
               title: Text('Apreensões'), 
               onTap: () => _navigate(context, '/impounds')
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Sair'),
+              onTap: () => print('Sair')
             )
           ]
         ),

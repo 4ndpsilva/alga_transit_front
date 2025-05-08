@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:alga_transit_front/domain/owner/owner_provider.dart';
-import 'package:alga_transit_front/domain/vehicle/vehicle_provider.dart';
-import 'package:alga_transit_front/infrastructure/routes.dart';
+import 'package:alga_transit_front/src/domain/owner/owner_provider.dart';
+import 'package:alga_transit_front/src/domain/vehicle/vehicle_provider.dart';
+import 'package:alga_transit_front/src/infrastructure/routes.dart';
 
 void main() {
   runApp(

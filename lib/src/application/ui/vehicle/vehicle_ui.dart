@@ -1,83 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:alga_transit_front/domain/owner/owner.dart';
-import 'package:alga_transit_front/domain/owner/owner_provider.dart';
-import 'owner_edit_ui.dart';
+import 'package:alga_transit_front/src/domain/vehicle/vehicle_provider.dart';
 
-class OwnerUI extends StatefulWidget{
+class VehicleUI extends StatefulWidget{
+
   @override
-  _OwnerUIState createState() => _OwnerUIState();
+  _VehicleUIState createState() => _VehicleUIState();
 }
 
-class _OwnerUIState extends State<OwnerUI>{
-
-  final OwnerEditUI ownerEditUI = OwnerEditUI();
+class _VehicleUIState extends State<VehicleUI>{
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    Future.microtask(() => context.read<OwnerProvider>().getAll());
+    Future.microtask(() => context.read<VehicleProvider>().getAll());
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro de Proprietários')
+        title: Text('Cadastro de Veículos')
       ),
-      body: Consumer<OwnerProvider>(
+      body: Consumer<VehicleProvider>(
         builder: (context, provider, child){
           if(provider.resultList.isEmpty){
             return Center(child: CircularProgressIndicator());
           }
-
+        
           return ListView.builder(
             itemCount: provider.resultList.length,
             itemBuilder: (context, index){
-              final owner = provider.resultList[index];
-
+              final vehicle = provider.resultList[index];
+              
               return Card(
                 elevation: 3,
                 margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 child: ListTile(
                   contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   title: Text(
-                    owner.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    )
+                    vehicle.model, 
+                    style: TextStyle(fontWeight: FontWeight.bold)
                   ),
                   subtitle: Text(
-                    owner.email,
+                    vehicle.brand, 
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.bold, 
                       color: Colors.blueAccent
-                    ),
+                    )
                   ),
                   trailing: SizedBox(
                     width: 144,
                     child: Wrap(
-                      spacing: 4,
                       alignment: WrapAlignment.end,
+                      spacing: 4,
                       children: [
                         IconButton(
                           tooltip: 'Visualizar',
                           icon: Icon(Icons.visibility),
-                          onPressed: () => ownerEditUI.showDetail(context, owner)
+                          onPressed: () => print('visualizar')
                         ),
                         IconButton(
                           tooltip: 'Editar',
-                          icon: Icon(Icons.edit),
-                          onPressed: () => ownerEditUI.showFormDialog(context, owner)
+                          icon: Icon(Icons.edit), 
+                          onPressed: () => print('editar')
                         ),
                         IconButton(
                           tooltip: 'Excluir',
-                          icon : Icon(Icons.delete),
-                          onPressed: () => ownerEditUI.showDeleteConfirmation(context, owner)
+                          icon: Icon(Icons.delete), 
+                          onPressed: () => print('deletar')
                         )
                       ]
                     )
-                  ) 
+                  )
                 )
               );
             }
@@ -85,23 +80,12 @@ class _OwnerUIState extends State<OwnerUI>{
         }
       ),
       floatingActionButton: FloatingActionButton(
+        onPressed:() => print('teste'),
         foregroundColor: Colors.white,
         backgroundColor: Colors.blueAccent,
-        tooltip: 'Adicionar novo',
-        onPressed: () => ownerEditUI.showFormDialog(context, _populate()),
+        tooltip: 'Adicionar Novo',
         child: Icon(Icons.add)
       )
     );
-  }
-
-  Owner _populate(){
-    Owner o = Owner(
-      id: 0,
-      name: '', 
-      email: '', 
-      phone: ''
-    );
-
-    return o;
   }
 }
