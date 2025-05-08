@@ -1,0 +1,3 @@
+enum Status{
+  REGULAR, SEIZED
+}
