@@ -28,4 +28,13 @@ class Owner{
       'phone': phone
     };
   }
+
+  factory Owner.newSelf(){
+    return Owner(
+      id: 0,
+      name: '', 
+      email: '', 
+      phone: ''
+    );
+  }
 }

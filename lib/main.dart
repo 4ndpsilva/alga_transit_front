@@ -8,8 +8,8 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => OwnerProvider()),
-        ChangeNotifierProvider(create: (context) => VehicleProvider())
+        ChangeNotifierProvider(create: (_) => OwnerProvider()),
+        ChangeNotifierProvider(create: (_) => VehicleProvider())
       ],
       child: MainApp()
     )
@@ -24,7 +24,8 @@ class MainApp extends StatelessWidget{
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      routerConfig: routers
+      routerConfig: routers,
+      debugShowCheckedModeBanner: false
     );
   }
 }

@@ -9,7 +9,11 @@ class MenuUI extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text('')),
+      appBar: AppBar(
+        title: Text(''),
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white
+      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -57,7 +61,7 @@ class MenuUI extends StatelessWidget{
               onTap: () => print('Sair')
             )
           ]
-        ),
+        )
       ),
       body: child
     );
